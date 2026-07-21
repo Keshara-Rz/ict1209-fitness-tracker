@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FitPulse</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div>
+            <div>
+                <!-- Logo -->
+                <a href="index.html">
+                    <span>Fit</span><span>Pulse</span>
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button type="button" id="navbarNavToggler">
+                    Menu
+                </button>
+
+                <!-- Navigation Links -->
+                <div id="navbarNav">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+
+                    <!-- Auth Buttons -->
+                    <div>
+                        <a href="login.html">Login</a>
+                        <a href="signup.html">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Content -->
+    <main>
+        <div>
+            <!-- Dashboard Header -->
+            <div>
+                <div>
+                    <h2>WELCOME BACK, <span>CHAMPION!</span></h2>
+                    <p>Track your daily progress, log physical activities, and analyze metrics.<br> <span id="currentDate"></span></p>
+                </div>
+            </div>
+
+            <!-- Summary Stats -->
+            <div>
+                <div>
+                    <div>
+                        <h6>Total Calories</h6>
+                        <h3 id="total-calories">1070 <span>kcal</span></h3>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h6>Active Time</h6>
+                        <h3 id="active-time">135 <span>mins</span></h3>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h6>Sessions</h6>
+                        <h3 id="total-sessions">3</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form & Chart Area -->
+            <div>
+                <!-- Left: Form -->
+                <div>
+                    <div>
+                        <h4>Log Exercise</h4>
+                        
+                        <form id="logForm">
+                            <div>
+                                <label>Activity</label>
+                                <input type="text" id="workoutName" placeholder="e.g. VR Boxing" required>
+                            </div>
+                            <div>
+                                <label>Duration (mins)</label>
+                                <input type="number" id="workoutDuration" placeholder="45" min="1" required>
+                            </div>
+                            <div>
+                                <label>Calories Burned</label>
+                                <input type="number" id="workoutCalories" placeholder="320" min="1" required>
+                            </div>
+                            
+                            <button type="submit">Log Activity</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right: Chart Area -->
+                <div>
+                    <div>
+                        <h4>Energy Expenditure</h4>
+                        
+                        <div>
+                            <!-- Canvas for Chart.js -->
+                            <canvas id="caloriesChart"></canvas>
+                            
+                            <!-- Empty State Message -->
+                            <div id="empty-chart-message">
+                                <h4>NO ACTIVITY YET</h4>
+                                <p>Log your first workout to see your progress chart ignite.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Table -->
+            <div>
+                <div>
+                    <div>
+                        <h4>Recent Logs</h4>
+                        
+                        <div>
+                            <table>
+                                <tbody id="workoutTableBody">
+                                    <tr>
+                                        <td>Jul 16, 2026<br><span>08:30 AM</span></td>
+                                        <td>VR Boxing</td>
+                                        <td>45 mins</td>
+                                        <td>420 kcal</td>
+                                        <td>
+                                            <button data-activity="VR Boxing" data-calories="420">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jul 14, 2026<br><span>06:15 PM</span></td>
+                                        <td>Zero-G Yoga</td>
+                                        <td>60 mins</td>
+                                        <td>350 kcal</td>
+                                        <td>
+                                            <button data-activity="Zero-G Yoga" data-calories="350">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jul 12, 2026<br><span>07:00 AM</span></td>
+                                        <td>Holographic Run</td>
+                                        <td>30 mins</td>
+                                        <td>300 kcal</td>
+                                        <td>
+                                            <button data-activity="Holographic Run" data-calories="300">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <p>&copy; 2026 FitPulse. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
