@@ -1,0 +1,423 @@
+/*  1. Imports & CSS Variables */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+/* Global Layout Fixes */
+html {
+    /* Locks the scrollbar in place to prevent layout shifting/shaking */
+    overflow-y: scroll; 
+}
+
+:root {
+    /* Main Colors */
+    --cyan: #00d2ff;
+    --cyan-dark: #0088aa;
+    --cyan-glow: rgba(0, 210, 255, 0.6);
+    --yellow: #ffcc00;
+    --yellow-glow: rgba(255, 204, 0, 0.6);
+    
+    /* Backgrounds */
+    --bg-deep: #030712;
+    --bg-darker: #010308;
+    
+    /* Glassmorphism settings */
+    --glass-bg: rgba(10, 15, 30, 0.55);
+    --glass-border: rgba(0, 210, 255, 0.15);
+    --glass-blur: 16px;
+    
+    /* Typography Colors */
+    --text-main: #ffffff;
+    --text-muted: #9ca3af;
+}
+
+/* 2. Base & Reset */
+body.dark-theme, body.bg-deep-dark {
+    background-color: var(--bg-darker);
+    color: var(--text-main);
+    font-family: 'Rajdhani', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. Typography & Utilities */
+.futuristic-font {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+}
+
+.tracking-wide { letter-spacing: 0.1em; }
+.tracking-wider { letter-spacing: 0.2em; }
+
+.text-cyan { color: var(--cyan) !important; }
+.text-light-gray { color: var(--text-muted) !important; }
+
+.text-glow {
+    text-shadow: 0 0 15px var(--cyan-glow);
+}
+
+.text-outline {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--text-main);
+}
+
+.border-cyan-glow {
+    border: 1px solid var(--cyan) !important;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2) inset;
+}
+
+/* 4. Backgrounds & Ambient Effects */
+/* Hero Section Specific Slider */
+.hero-slider-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Smooth Fade Transition for Hero Slider */
+
+.carousel-fade .carousel-item {
+    transition: opacity 2s ease-in-out !important;
+}
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+    opacity: 1;
+}
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+    opacity: 0;
+}
+
+.bg-slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Placeholders for Slider Images */
+
+.bg-slide-1 { background-image: url('https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?q=80&w=2000&auto=format&fit=crop'); }
+.bg-slide-2 { background-image: url('https://images.unsplash.com/photo-1614729939124-03290b56c9ce?q=80&w=2000&auto=format&fit=crop'); }
+.bg-slide-3 { background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop'); }
+
+/* Overlay keeps the text readable over the images */
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, var(--bg-darker) 0%, rgba(1, 3, 8, 0.7) 40%, var(--bg-darker) 100%);
+    z-index: 1;
+}
+
+/* hero content sits above the slider */
+
+.hero-content {
+    z-index: 2;
+}
+
+/* Ambient glow for the rest of the clean sections/pages */
+
+.ambient-bg-glow {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -1;
+    background: radial-gradient(circle at 15% 30%, rgba(0, 210, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 70%, rgba(0, 210, 255, 0.05) 0%, transparent 40%);
+}
+
+/* 5. Navigation (Glassmorphism) */
+.glass-nav {
+    background: rgba(3, 7, 18, 0.7) !important;
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--glass-border);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.glass-nav .nav-link {
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.glass-nav .nav-link:hover, .glass-nav .nav-link.active {
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan-glow);
+}
+
+.custom-toggler {
+    border-color: var(--glass-border);
+    background: var(--glass-bg);
+}
+
+/*  6. Buttons */
+.btn-glow-cyan {
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--cyan);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-glow-cyan:hover {
+    background: var(--cyan);
+    color: #000;
+    box-shadow: 0 0 20px var(--cyan-glow);
+    transform: translateY(-2px) scale(1.05); 
+}
+
+.btn-glow-yellow:hover {
+    background: #ffdb4d;
+    box-shadow: 0 0 25px var(--yellow-glow);
+    transform: translateY(-3px) scale(1.05); 
+    color: #000;
+}
+
+.btn-glow-yellow:hover {
+    background: #ffdb4d;
+    box-shadow: 0 0 25px var(--yellow-glow);
+    transform: translateY(-3px);
+    color: #000;
+}
+
+.btn-outline-cyan {
+    color: var(--cyan);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+.btn-outline-cyan:hover {
+    border-color: var(--cyan);
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--text-main);
+}
+
+.btn-outline-glow-white {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); 
+    transition: all 0.3s ease;
+}
+
+.btn-outline-glow-white:hover {
+    background: #ffffff;
+    color: #000000; 
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.7); 
+    transform: translateY(-3px) scale(1.05); 
+}
+
+/* 7. Glass Panels & Cards */
+
+.glass-panel, .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-card {
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.feature-hover:hover, .glass-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    border-color: rgba(0, 210, 255, 0.4);
+    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.15);
+    z-index: 10;
+}
+
+.card-glow-accent {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.2) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+.card-glow-accent.top-left { top: -50px; left: -50px; }
+.card-glow-accent.top-right { top: -50px; right: -50px; }
+
+.glass-card > * { position: relative; z-index: 1; }
+
+/* 8. Forms & Inputs */
+.glass-input, .glass-input:focus {
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid var(--glass-border) !important;
+    color: #fff !important;
+    border-radius: 8px;
+    box-shadow: none !important;
+    transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+    border-color: var(--cyan) !important;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2) !important;
+}
+
+.glass-input::placeholder {
+    color: rgba(156, 163, 175, 0.5);
+}
+
+.glass-addon {
+    background: rgba(0, 210, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-right: none;
+}
+
+/* 9. Tables (Dashboard) */
+.glass-table {
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--text-main);
+    --bs-table-border-color: rgba(255, 255, 255, 0.05);
+    margin-bottom: 0;
+}
+
+.glass-table tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.glass-table tbody tr:hover {
+    background-color: rgba(0, 210, 255, 0.05);
+}
+
+/* 10. Social Hover Classes */
+.hover-cyan:hover i { color: var(--cyan); text-shadow: 0 0 10px var(--cyan-glow); }
+.hover-warning:hover i { color: var(--yellow); text-shadow: 0 0 10px var(--yellow-glow); }
+
+/* 11. Animations */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.2; }
+    50% { transform: scale(1.05); opacity: 0.4; box-shadow: 0 0 30px rgba(0, 210, 255, 0.4); }
+    100% { transform: scale(1); opacity: 0.2; }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 12. Footer */
+.glass-footer {
+    background: rgba(3, 7, 18, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+/*  Hero Slideshow - Fade & Zoom Effect= */
+
+.carousel-fade .carousel-item {
+    transition: opacity 2s ease-in-out !important;
+}
+
+@keyframes slowZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.15); 
+    }
+}
+
+/* 3.animation to the images */
+.carousel-item img {
+    transform: scale(1);
+    transition: transform 2s ease-in-out; 
+}
+
+/* 4. Trigger the zoom ONLY when the slide becomes active */
+.carousel-item.active img {
+    animation: slowZoom 10s linear forwards;
+}
+
+/* Floating Glass Pill Navbar  */
+
+.glass-nav-pill {
+    background: rgba(15, 20, 30, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Base styling for the centered links */
+.custom-nav-link {
+    padding: 0.4rem 1.2rem !important;
+    border-radius: 50rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+/* Hover effect for inactive links */
+.custom-nav-link:hover {
+    color: #ffffff !important;
+}
+
+.custom-nav-link.active-link {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.03); 
+}
+
+/* Clean hover for the plain text login link */
+.hover-white {
+    transition: color 0.3s ease;
+}
+.hover-white:hover {
+    color: #ffffff !important;
+}
+
+/* Navbar Sign Up Button - Color Flip Effect */
+
+/* Default State: Cyan Text */
+.btn-glow-cyan {
+    color: #00d2ff !important; 
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover State: Dark Text */
+.btn-glow-cyan:hover {
+    color: #0f141e !important;
+    background-color: #00d2ff !important;
+}
+
+/* Smooth Page Transitions */
+
+
+body {
+    animation: fadeInPage 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeInPage {
+    0% { 
+        opacity: 0; 
+        transform: translateY(15px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Fades the page out when a link is clicked */
+.page-exit {
+    opacity: 0 !important;
+    transform: translateY(-15px) !important;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
