@@ -1,17 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - FitPulse</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Link to our future CSS file -->
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="dark-theme bg-deep-dark">
 
-    <!-- Glow Background -->
+    <!-- Ambient Glow Background -->
     <div class="ambient-bg-glow"></div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top py-4">
+    <!-- Glass Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top py-4" style="z-index: 1050;">
         <div class="container">
             
             <!-- The floating glass pill -->
@@ -27,13 +34,12 @@
                     <i class="bi bi-list fs-3"></i>
                 </button>
 
-                <!-- 3. Collapsible Menu (Contains both Center Links & Right Buttons) -->
+                <!-- 3. Collapsible Menu -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     
                     <!-- Center Links -->
                     <ul class="navbar-nav align-items-center gap-1 gap-lg-2 mx-lg-auto mt-3 mt-lg-0 pb-3 pb-lg-0">
                         <li class="nav-item">
-                            <!-- Remember to move 'active-link' to the current page -->
                             <a class="nav-link custom-nav-link text-light-gray small " href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
@@ -48,7 +54,6 @@
                     </ul>
                     
                     <!-- Desktop Auth Buttons (Right) -->
-                    <!-- 'd-none d-lg-flex' completely hides this block from the mobile drop-down menu -->
                     <div class="d-none d-lg-flex align-items-center gap-4 mt-3 mt-lg-0">
                         <a href="login.html" class="text-light-gray text-decoration-none small hover-white">Login</a>
                         <a href="signup.html" class="btn btn-glow-cyan rounded-pill px-4 py-2 small fw-bold d-flex align-items-center gap-2 text-dark">
@@ -65,24 +70,22 @@
     <!-- Main Content Wrapper -->
     <main class="content-wrapper pt-5 mt-5 mb-5">
         <div class="container">
-            <!-- FIX: Increased column sizes to 'col-lg-12 col-xl-10' to make the box much wider -->
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-xl-10">
                     
-                    <!-- FIX: Changed to 'my-5' (top/bottom margin only) and 'p-5' (larger padding) so the box expands fully -->
                     <div class="glass-card my-5 p-5 rounded-4 position-relative overflow-hidden h-auto">
                         
                         <!-- Glow effect -->
-                        <div class="card-glow-accent"></div>
+                        <div class="card-glow-accent" style="position: absolute; width: 350px; height: 350px; background: radial-gradient(circle, rgba(0,210,255,0.15) 0%, transparent 70%); top: -150px; right: -150px; z-index: 0; pointer-events: none;"></div>
                         
-                        <!-- The content row (Added 'g-5' to increase the gap between the text and the form) -->
-                        <div class="row g-5 position-relative">
+                        <!-- The content row -->
+                        <div class="row g-5 position-relative" style="z-index: 1;">
                             
                             <!-- Left Side: Text Content -->
                             <div class="col-md-5 d-flex flex-column border-end border-secondary border-opacity-25 pe-md-5">
                                 
                                 <div class="icon-box text-cyan mb-3 mt-2">
-                                    <i class="bi bi-chat-right-dots"></i>
+                                    <i class="bi bi-chat-right-dots" style="font-size: 3.5rem; filter: drop-shadow(0 0 10px #00d2ff);"></i>
                                 </div>
                                 
                                 <h2 class="text-white futuristic-font text-glow mb-4 display-6">
@@ -100,7 +103,7 @@
                                     </div>
                                     <div class="d-flex align-items-center gap-3 text-light-gray">
                                         <div class="bg-cyan bg-opacity-10 p-3 rounded-3 text-cyan"><i class="bi bi-geo-alt fs-5"></i></div>
-                                        <span class="fs-6">Virtual HQ, Cyber Space</span>
+                                        <span class="fs-6">Faculty Of Technology<br>Rajarata University Of Sri Lanka</span>
                                     </div>
                                 </div>
                                 
@@ -167,5 +170,9 @@
         </div>
     </footer>
 
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Future Custom JS -->
+    <script src="../js/script.js"></script>
 </body>
 </html>

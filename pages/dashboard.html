@@ -1,156 +1,205 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - FitPulse</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </head>
-<body>
-    <!-- Navigation -->
-    <nav>
-        <div>
-            <div>
-                <!-- Logo -->
-                <a href="index.html">
-                    <span>Fit</span><span>Pulse</span>
+<body class="dark-theme bg-deep-dark">
+
+    <div class="ambient-bg-glow"></div>
+
+    <!-- Glass Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top py-4" style="z-index: 1050;">
+        <div class="container">
+            <div class="glass-nav-pill w-100 d-flex align-items-center justify-content-between px-3 px-lg-4 py-2 py-lg-1 rounded-4 rounded-lg-pill">
+                
+                <a class="navbar-brand d-flex align-items-center m-0" href="index.html">
+                    <span class="text-white fw-light tracking-wide fs-6">Fit</span><span class="text-cyan fw-bold fs-6">Pulse</span>
                 </a>
 
-                <!-- Mobile Menu Toggle -->
-                <button type="button" id="navbarNavToggler">
-                    Menu
+                <button class="navbar-toggler border-0 shadow-none text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="bi bi-list fs-3"></i>
                 </button>
 
-                <!-- Navigation Links -->
-                <div id="navbarNav">
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="dashboard.html">Dashboard</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav align-items-center gap-1 gap-lg-2 mx-lg-auto mt-3 mt-lg-0 pb-3 pb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link text-light-gray small " href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link text-light-gray small active-link" href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link text-light-gray small" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link text-light-gray small" href="contact.html">Contact Us</a>
+                        </li>
                     </ul>
-
-                    <!-- Auth Buttons -->
-                    <div>
-                        <a href="login.html">Login</a>
-                        <a href="signup.html">Sign Up</a>
+                    
+                    <div class="d-none d-lg-flex align-items-center gap-4 mt-3 mt-lg-0">
+                        <a href="login.html" class="text-light-gray text-decoration-none small hover-white">Login</a>
+                        <a href="signup.html" class="btn btn-glow-cyan rounded-pill px-4 py-2 small fw-bold d-flex align-items-center gap-2 text-dark">
+                            Sign Up <i class="bi bi-arrow-up-right"></i>
+                        </a>
                     </div>
                 </div>
+                
             </div>
         </div>
     </nav>
 
     <!-- Main Dashboard Content -->
-    <main>
-        <div>
+    <main class="content-wrapper pt-5 mt-5 mb-5">
+        <div class="container py-4">
+            
             <!-- Dashboard Header -->
-            <div>
+            <div class="d-flex justify-content-between align-items-center mb-5 mt-2">
                 <div>
-                    <h2>WELCOME BACK, <span>CHAMPION!</span></h2>
-                    <p>Track your daily progress, log physical activities, and analyze metrics.<br> <span id="currentDate"></span></p>
+                    <h2 class="text-white futuristic-font text-glow mb-1">WELCOME BACK, <span class="text-cyan">CHAMPION!</span></h2>
+                    <p class="text-light-gray mb-0">Track your daily progress, log physical activities, and analyze metrics.<br> <span id="currentDate" class="text-cyan"></span></p>
                 </div>
             </div>
 
-            <!-- Summary Stats -->
-            <div>
-                <div>
-                    <div>
-                        <h6>Total Calories</h6>
-                        <h3 id="total-calories">1070 <span>kcal</span></h3>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <h6>Active Time</h6>
-                        <h3 id="active-time">135 <span>mins</span></h3>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <h6>Sessions</h6>
-                        <h3 id="total-sessions">3</h3>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Form & Chart Area -->
-            <div>
-                <!-- Left: Form -->
-                <div>
-                    <div>
-                        <h4>Log Exercise</h4>
-                        
-                        <form id="logForm">
+            <!-- ROW 1: Summary Stats -->
+            <div class="row g-4 mb-4">
+                <div class="col-md-4">
+                    <div class="glass-card p-4 rounded-4 position-relative overflow-hidden h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-cyan bg-opacity-10 p-3 rounded-3 text-cyan"><i class="bi bi-fire fs-4"></i></div>
                             <div>
-                                <label>Activity</label>
-                                <input type="text" id="workoutName" placeholder="e.g. VR Boxing" required>
+                                <h6 class="text-light-gray small text-uppercase tracking-wider mb-1">Total Calories</h6>
+                                <h3 id="total-calories" class="text-white mb-0 futuristic-font text-glow">1070 <span class="fs-6 text-cyan">kcal</span></h3>
                             </div>
-                            <div>
-                                <label>Duration (mins)</label>
-                                <input type="number" id="workoutDuration" placeholder="45" min="1" required>
-                            </div>
-                            <div>
-                                <label>Calories Burned</label>
-                                <input type="number" id="workoutCalories" placeholder="320" min="1" required>
-                            </div>
-                            
-                            <button type="submit">Log Activity</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Right: Chart Area -->
-                <div>
-                    <div>
-                        <h4>Energy Expenditure</h4>
-                        
-                        <div>
-                            <!-- Canvas for Chart.js -->
-                            <canvas id="caloriesChart"></canvas>
-                            
-                            <!-- Empty State Message -->
-                            <div id="empty-chart-message">
-                                <h4>NO ACTIVITY YET</h4>
-                                <p>Log your first workout to see your progress chart ignite.</p>
+                <div class="col-md-4">
+                    <div class="glass-card p-4 rounded-4 position-relative overflow-hidden h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-purple bg-opacity-10 p-3 rounded-3" style="color: #b026ff;"><i class="bi bi-stopwatch fs-4"></i></div>
+                            <div>
+                                <h6 class="text-light-gray small text-uppercase tracking-wider mb-1">Active Time</h6>
+                                <h3 id="active-time" class="text-white mb-0 futuristic-font text-glow">135 <span class="fs-6" style="color: #b026ff;">mins</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="glass-card p-4 rounded-4 position-relative overflow-hidden h-100">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-success bg-opacity-10 p-3 rounded-3 text-success"><i class="bi bi-activity fs-4"></i></div>
+                            <div>
+                                <h6 class="text-light-gray small text-uppercase tracking-wider mb-1">Sessions</h6>
+                                <h3 id="total-sessions" class="text-white mb-0 futuristic-font text-glow">3</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- History Table -->
-            <div>
-                <div>
-                    <div>
-                        <h4>Recent Logs</h4>
+            <!-- ROW 2: Form & Chart -->
+            <div class="row g-4 mb-4 align-items-stretch">
+                
+                <!-- Left: Form -->
+                <div class="col-lg-5">
+                    <div class="glass-card p-4 p-md-5 rounded-4 position-relative overflow-hidden h-100 d-flex flex-column">
+                        <div class="card-glow-accent top-left" style="position: absolute; z-index: 0; pointer-events: none;"></div>
+                        <div class="position-relative flex-grow-1" style="z-index: 1;">
+                            <h4 class="text-white mb-4 futuristic-font border-bottom border-secondary pb-2">
+                                <i class="bi bi-lightning-charge text-cyan me-2"></i>Log Exercise
+                            </h4>
+                            
+                            <form id="logForm" class="needs-validation" novalidate>
+                                <div class="mb-4">
+                                    <label class="form-label text-light-gray small text-uppercase tracking-wider">Activity</label>
+                                    <input type="text" id="workoutName" class="form-control glass-input text-white py-2" placeholder="e.g. VR Boxing" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label text-light-gray small text-uppercase tracking-wider">Duration (mins)</label>
+                                    <input type="number" id="workoutDuration" class="form-control glass-input text-white py-2" placeholder="45" min="1" required>
+                                </div>
+                                <div class="mb-5">
+                                    <label class="form-label text-light-gray small text-uppercase tracking-wider">Calories Burned</label>
+                                    <input type="number" id="workoutCalories" class="form-control glass-input text-white py-2" placeholder="320" min="1" required>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-outline-glow-white border-2 w-100 rounded-pill py-3 fw-bold text-uppercase tracking-wider mt-auto">
+                                    Log Activity <i class="bi bi-plus-lg ms-2"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Chart Area -->
+                <div class="col-lg-7">
+                    <div class="glass-card p-4 p-md-5 rounded-4 position-relative overflow-hidden h-100">
+                        <h4 class="text-white mb-4 futuristic-font border-bottom border-secondary pb-2">
+                            <i class="bi bi-pie-chart text-cyan me-2"></i>Energy Expenditure
+                        </h4>
                         
-                        <div>
-                            <table>
+                        <div class="position-relative w-100 d-flex justify-content-center align-items-center" style="height: 300px; margin-top: 2rem;">
+                            <canvas id="caloriesChart"></canvas>
+                            
+                            <div id="empty-chart-message" class="text-center d-none position-absolute">
+                                <i class="bi bi-activity fs-1 text-cyan mb-3 d-block"></i>
+                                <h4 class="text-white futuristic-font text-glow">NO ACTIVITY YET</h4>
+                                <p class="text-light-gray small mb-0">Log your first workout to see your progress chart ignite.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROW 3: History Table -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="glass-card p-4 p-md-5 rounded-4 position-relative overflow-hidden">
+                        <h4 class="text-white mb-4 futuristic-font border-bottom border-secondary pb-2">
+                            <i class="bi bi-list-ul text-cyan me-2"></i>Recent Logs
+                        </h4>
+                        
+                        <div class="table-responsive mt-3">
+                            <table class="table table-borderless align-middle mb-0 text-white" style="--bs-table-bg: transparent;">
                                 <tbody id="workoutTableBody">
                                     <tr>
-                                        <td>Jul 16, 2026<br><span>08:30 AM</span></td>
-                                        <td>VR Boxing</td>
-                                        <td>45 mins</td>
-                                        <td>420 kcal</td>
-                                        <td>
-                                            <button data-activity="VR Boxing" data-calories="420">Delete</button>
+                                        <td class="text-light-gray small">Jul 16, 2026<br><span class="text-cyan">08:30 AM</span></td>
+                                        <td class="text-white">VR Boxing</td>
+                                        <td class="text-white">45 mins</td>
+                                        <td class="text-glow text-cyan">420 kcal</td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-danger rounded-circle delete-btn" data-activity="VR Boxing" data-calories="420"><i class="bi bi-trash"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Jul 14, 2026<br><span>06:15 PM</span></td>
-                                        <td>Zero-G Yoga</td>
-                                        <td>60 mins</td>
-                                        <td>350 kcal</td>
-                                        <td>
-                                            <button data-activity="Zero-G Yoga" data-calories="350">Delete</button>
+                                        <td class="text-light-gray small">Jul 14, 2026<br><span class="text-cyan">06:15 PM</span></td>
+                                        <td class="text-white">Zero-G Yoga</td>
+                                        <td class="text-white">60 mins</td>
+                                        <td class="text-glow text-cyan">350 kcal</td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-danger rounded-circle delete-btn" data-activity="Zero-G Yoga" data-calories="350"><i class="bi bi-trash"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Jul 12, 2026<br><span>07:00 AM</span></td>
-                                        <td>Holographic Run</td>
-                                        <td>30 mins</td>
-                                        <td>300 kcal</td>
-                                        <td>
-                                            <button data-activity="Holographic Run" data-calories="300">Delete</button>
+                                        <td class="text-light-gray small">Jul 12, 2026<br><span class="text-cyan">07:00 AM</span></td>
+                                        <td class="text-white">Holographic Run</td>
+                                        <td class="text-white">30 mins</td>
+                                        <td class="text-glow text-cyan">300 kcal</td>
+                                        <td class="text-end">
+                                            <button class="btn btn-sm btn-outline-danger rounded-circle delete-btn" data-activity="Holographic Run" data-calories="300"><i class="bi bi-trash"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -159,14 +208,195 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </main>
 
     <!-- Footer -->
-    <footer>
-        <div>
-            <p>&copy; 2026 FitPulse. All Rights Reserved.</p>
+    <footer class="glass-footer py-4 mt-auto">
+        <div class="container text-center">
+            <p class="text-light-gray mb-0 small">&copy; 2026 FitPulse. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- Bootstrap & Global Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    
+    <!-- Embedded Dashboard Logic securely in its own script block -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Set dynamic current date
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+            const dateEl = document.getElementById('currentDate');
+            if(dateEl) dateEl.innerHTML = new Date().toLocaleDateString('en-US', dateOptions).toUpperCase();
+
+            // Get HTML Elements safely
+            const totalSessionsEl = document.getElementById('total-sessions');
+            const activeTimeEl = document.getElementById('active-time');
+            const totalCaloriesEl = document.getElementById('total-calories');
+            const chartCanvas = document.getElementById('caloriesChart');
+            const emptyMessage = document.getElementById('empty-chart-message');
+            const logForm = document.getElementById('logForm');
+            const logTableBody = document.getElementById('workoutTableBody');
+
+            // Dashboard State
+            let totalSessions = 3;
+            let totalActiveTime = 135;
+            let totalCalories = 1070;
+
+            function updateSummaryCards() {
+                if(totalSessionsEl) totalSessionsEl.innerHTML = `${totalSessions}`;
+                if(activeTimeEl) activeTimeEl.innerHTML = `${totalActiveTime} <span class="fs-6" style="color: #b026ff;">mins</span>`;
+                if(totalCaloriesEl) totalCaloriesEl.innerHTML = `${totalCalories} <span class="fs-6 text-cyan">kcal</span>`;
+                
+                if (totalSessions === 0) {
+                    if(chartCanvas) chartCanvas.classList.add('d-none');
+                    if(emptyMessage) emptyMessage.classList.remove('d-none');
+                } else {
+                    if(chartCanvas) chartCanvas.classList.remove('d-none');
+                    if(emptyMessage) emptyMessage.classList.add('d-none');
+                }
+            }
+
+            // Initialize Chart
+            let caloriesChart;
+            let chartData = {
+                labels: ['VR Boxing', 'Zero-G Yoga', 'Holographic Run'],
+                datasets: [{
+                    data: [420, 350, 300],
+                    backgroundColor: ['rgba(0, 210, 255, 0.8)', 'rgba(255, 204, 0, 0.8)', 'rgba(176, 38, 255, 0.8)', 'rgba(255, 51, 102, 0.8)', 'rgba(51, 255, 153, 0.8)'],
+                    borderColor: 'rgba(3, 7, 18, 1)', 
+                    borderWidth: 3,
+                    hoverOffset: 8
+                }]
+            };
+
+            if (chartCanvas) {
+                caloriesChart = new Chart(chartCanvas, {
+                    type: 'doughnut',
+                    data: chartData,
+                    options: { responsive: true, maintainAspectRatio: false, color: '#9ca3af', plugins: { legend: { position: 'right', labels: { font: { family: 'Rajdhani', size: 14 } } } } }
+                });
+            }
+
+            // Delete Functionality
+            function attachDeleteEvents() {
+                const deleteBtns = document.querySelectorAll('.delete-btn');
+                deleteBtns.forEach(btn => {
+                    if (!btn.hasAttribute('data-bound')) {
+                        btn.setAttribute('data-bound', 'true');
+                        btn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const row = this.closest('tr');
+                            if(!row) return;
+
+                            const activityName = this.getAttribute('data-activity');
+                            const calsToRemove = parseInt(this.getAttribute('data-calories')) || 0;
+                            const durationText = row.cells[2] ? row.cells[2].innerText : '0';
+                            const minsToRemove = parseInt(durationText) || 0;
+
+                            row.style.opacity = '0';
+                            row.style.transform = 'translateX(20px)';
+                            row.style.transition = 'all 0.4s ease';
+
+                            setTimeout(() => {
+                                row.remove();
+                                totalSessions--;
+                                totalActiveTime -= minsToRemove;
+                                totalCalories -= calsToRemove;
+                                updateSummaryCards();
+
+                                if (caloriesChart) {
+                                    const index = chartData.labels.findIndex(label => label.toLowerCase() === activityName.toLowerCase());
+                                    if (index >= 0) {
+                                        chartData.datasets[0].data[index] -= calsToRemove;
+                                        if (chartData.datasets[0].data[index] <= 0) {
+                                            chartData.labels.splice(index, 1);
+                                            chartData.datasets[0].data.splice(index, 1);
+                                            chartData.datasets[0].backgroundColor.splice(index, 1);
+                                        }
+                                        caloriesChart.update();
+                                    }
+                                }
+                            }, 400); 
+                        });
+                    }
+                });
+            }
+            attachDeleteEvents();
+
+            // Add New Workout Logic
+            if(logForm && logTableBody) {
+                logForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); 
+                    if (this.checkValidity()) {
+                        const nameInput = document.getElementById('workoutName');
+                        const durInput = document.getElementById('workoutDuration');
+                        const calInput = document.getElementById('workoutCalories');
+
+                        if(!nameInput || !durInput || !calInput) return;
+
+                        const activityName = nameInput.value;
+                        const duration = parseInt(durInput.value) || 0;
+                        const calories = parseInt(calInput.value) || 0;
+                        
+                        const now = new Date();
+                        const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                        const dateString = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+                        totalSessions++;
+                        totalActiveTime += duration;
+                        totalCalories += calories;
+                        updateSummaryCards();
+
+                        const newRow = document.createElement('tr');
+                        newRow.style.opacity = '0';
+                        newRow.style.transform = 'translateX(-20px)';
+                        newRow.style.transition = 'all 0.5s ease';
+                        
+                        newRow.innerHTML = `
+                            <td class="text-light-gray small">${dateString}<br><span class="text-cyan">${timeString}</span></td>
+                            <td class="text-white">${activityName}</td>
+                            <td class="text-white">${duration} mins</td>
+                            <td class="text-glow text-cyan">${calories} kcal</td>
+                            <td class="text-end">
+                                <button class="btn btn-sm btn-outline-danger rounded-circle delete-btn" data-activity="${activityName}" data-calories="${calories}">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </td>
+                        `;
+
+                        logTableBody.insertBefore(newRow, logTableBody.firstChild);
+                        
+                        setTimeout(() => {
+                            newRow.style.opacity = '1';
+                            newRow.style.transform = 'translateX(0)';
+                        }, 50);
+
+                        if (caloriesChart) {
+                            const existingIndex = chartData.labels.findIndex(label => label.toLowerCase() === activityName.toLowerCase());
+                            if (existingIndex >= 0) {
+                                chartData.datasets[0].data[existingIndex] += calories;
+                            } else {
+                                chartData.labels.push(activityName);
+                                chartData.datasets[0].data.push(calories);
+                                if (chartData.labels.length > chartData.datasets[0].backgroundColor.length) {
+                                    chartData.datasets[0].backgroundColor.push(`rgba(${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, 255, 0.8)`);
+                                }
+                            }
+                            caloriesChart.update();
+                        }
+
+                        this.reset();
+                        this.classList.remove('was-validated'); 
+                        attachDeleteEvents();
+                    } else {
+                        this.classList.add('was-validated');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

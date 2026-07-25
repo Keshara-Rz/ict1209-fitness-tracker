@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +10,14 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Link to our future CSS file -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="dark-theme bg-deep-dark">
 
     <!-- Ambient Glow Background -->
     <div class="ambient-bg-glow"></div>
 
-    <!-- Unified Floating Glass Navbar -->
+    <!-- Glass Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top py-4" style="z-index: 1050;">
         <div class="container">
             
@@ -33,13 +34,12 @@
                     <i class="bi bi-list fs-3"></i>
                 </button>
 
-                <!-- 3. Collapsible Menu (Contains both Center Links & Right Buttons) -->
+                <!-- 3. Collapsible Menu -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     
                     <!-- Center Links -->
                     <ul class="navbar-nav align-items-center gap-1 gap-lg-2 mx-lg-auto mt-3 mt-lg-0 pb-3 pb-lg-0">
                         <li class="nav-item">
-                            <!-- Remember to move 'active-link' to the current page -->
                             <a class="nav-link custom-nav-link text-light-gray small " href="index.html">Home</a>
                         </li>
                         <li class="nav-item">
@@ -54,7 +54,6 @@
                     </ul>
                     
                     <!-- Desktop Auth Buttons (Right) -->
-                    <!-- 'd-none d-lg-flex' completely hides this block from the mobile drop-down menu -->
                     <div class="d-none d-lg-flex align-items-center gap-4 mt-3 mt-lg-0">
                         <a href="login.html" class="text-light-gray text-decoration-none small hover-white">Login</a>
                         <a href="signup.html" class="btn btn-glow-cyan rounded-pill px-4 py-2 small fw-bold d-flex align-items-center gap-2 text-dark">
@@ -68,7 +67,7 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Main Content Wrapper -->
     <main class="content-wrapper pt-5 mt-5">
         <div class="container py-5">
             
@@ -93,10 +92,8 @@
                     </div>
                 </div>
                 
-                <!-- Decorative Tech/VR Graphic Side (Placeholder for visual balance) -->
                 <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center">
                     <div class="position-relative w-100 h-100 d-flex justify-content-center align-items-center" style="min-height: 400px;">
-                        <!-- Glowing concentric circles acting as a sci-fi decorative element -->
                         <div class="decorative-circle-1 border-cyan-glow rounded-circle position-absolute" style="width: 300px; height: 300px; opacity: 0.2; animation: pulse 4s infinite;"></div>
                         <div class="decorative-circle-2 border border-secondary rounded-circle position-absolute" style="width: 400px; height: 400px; opacity: 0.1; transform: rotate(45deg);"></div>
                         <i class="bi bi-fingerprint text-cyan" style="font-size: 8rem; filter: drop-shadow(0 0 20px #00d2ff);"></i>
@@ -170,6 +167,6 @@
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Future Custom JS -->
-    <script src="script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
