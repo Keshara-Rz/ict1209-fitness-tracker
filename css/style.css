@@ -66,7 +66,7 @@ body.dark-theme, body.bg-deep-dark {
     box-shadow: 0 0 15px rgba(0, 210, 255, 0.2) inset;
 }
 
-/* 4. Backgrounds & Ambient Effects */
+/* 4. Backgrounds */
 /* Hero Section Specific Slider */
 .hero-slider-bg {
     position: absolute;
@@ -168,27 +168,27 @@ body.dark-theme, body.bg-deep-dark {
     background: transparent;
     color: var(--cyan);
     border: 1px solid var(--cyan);
-    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+    box-shadow: 0 0 8px rgba(0, 210, 255, 0.2);
     transition: all 0.3s ease;
 }
 
 .btn-glow-cyan:hover {
     background: var(--cyan);
     color: #000;
-    box-shadow: 0 0 20px var(--cyan-glow);
-    transform: translateY(-2px) scale(1.05); 
+    box-shadow: 0 0 8px var(--cyan-glow);
+    transform: translateY(-2px) scale(1.02); 
 }
 
 .btn-glow-yellow:hover {
     background: #ffdb4d;
-    box-shadow: 0 0 25px var(--yellow-glow);
-    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 0 8px var(--yellow-glow);
+    transform: translateY(-3px) scale(1.02); 
     color: #000;
 }
 
 .btn-glow-yellow:hover {
     background: #ffdb4d;
-    box-shadow: 0 0 25px var(--yellow-glow);
+    box-shadow: 0 0 8px var(--yellow-glow);
     transform: translateY(-3px);
     color: #000;
 }
@@ -208,15 +208,15 @@ body.dark-theme, body.bg-deep-dark {
     background: transparent;
     color: #ffffff;
     border: 2px solid #ffffff;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); 
     transition: all 0.3s ease;
 }
 
 .btn-outline-glow-white:hover {
     background: #ffffff;
     color: #000000; 
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.7); 
-    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7); 
+    transform: translateY(-3px) scale(1.02); 
 }
 
 /* 7. Glass Panels & Cards */
