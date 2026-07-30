@@ -165,49 +165,51 @@
             </div>
 
             <!-- ROW 3: History Table -->
+            
             <div class="row">
-                <div class="col-12">
-                    <div class="glass-card p-4 p-md-5 rounded-4 position-relative overflow-hidden">
-                        <h4 class="text-white mb-4 futuristic-font border-bottom border-secondary pb-2">
-                            <i class="bi bi-list-ul text-cyan me-2"></i>Recent Logs
-                        </h4>
-                        
-                        <div class="table-responsive mt-3">
-                            <table class="table table-borderless align-middle mb-0 text-white" style="--bs-table-bg: transparent;">
-                                <tbody id="workoutTableBody">
-                                    <tr>
-                                        <td class="text-light-gray small">Jul 16, 2026<br><span class="text-cyan">08:30 AM</span></td>
-                                        <td class="text-white">VR Boxing</td>
-                                        <td class="text-white">45 mins</td>
-                                        <td class="text-glow text-cyan">420 kcal</td>
-                                        <td class="text-end">
-                                            <button class="btn btn-sm btn-outline-danger rounded-circle delete-btn" data-activity="VR Boxing" data-calories="420"><i class="bi bi-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-light-gray small">Jul 14, 2026<br><span class="text-cyan">06:15 PM</span></td>
-                                        <td class="text-white">Zero-G Yoga</td>
-                                        <td class="text-white">60 mins</td>
-                                        <td class="text-glow text-cyan">350 kcal</td>
-                                        <td class="text-end">
-                                            <button class="btn btn-sm btn-outline-danger rounded-circle delete-btn" data-activity="Zero-G Yoga" data-calories="350"><i class="bi bi-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-light-gray small">Jul 12, 2026<br><span class="text-cyan">07:00 AM</span></td>
-                                        <td class="text-white">Holographic Run</td>
-                                        <td class="text-white">30 mins</td>
-                                        <td class="text-glow text-cyan">300 kcal</td>
-                                        <td class="text-end">
-                                            <button class="btn btn-sm btn-outline-danger rounded-circle delete-btn" data-activity="Holographic Run" data-calories="300"><i class="bi bi-trash"></i></button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+            <div class="col-12">
+                <div class="glass-card p-4 p-md-5 rounded-4 position-relative overflow-hidden">
+                    <h4 class="text-white mb-4 futuristic-font border-bottom border-secondary pb-2">
+                        <i class="bi bi-list-ul text-cyan me-2"></i>Recent Logs
+                    </h4>
+                    
+                    <div class="table-responsive mt-3">
+                        <table class="table table-borderless align-middle mb-0 text-white text-nowrap" style="--bs-table-bg: transparent;">
+                            <tbody id="workoutTableBody">
+                                <tr>
+                                    <td class="text-light-gray small">Jul 16, 2026<br><span class="text-cyan">08:30 AM</span></td>
+                                    <td class="text-white">VR Boxing</td>
+                                    <td class="text-white">45 mins</td>
+                                    <td class="text-glow text-cyan">420 kcal</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-outline-danger rounded-circle delete-btn" data-activity="VR Boxing" data-calories="420"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-light-gray small">Jul 14, 2026<br><span class="text-cyan">06:15 PM</span></td>
+                                    <td class="text-white">Zero-G Yoga</td>
+                                    <td class="text-white">60 mins</td>
+                                    <td class="text-glow text-cyan">350 kcal</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-outline-danger rounded-circle delete-btn" data-activity="Zero-G Yoga" data-calories="350"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-light-gray small">Jul 12, 2026<br><span class="text-cyan">07:00 AM</span></td>
+                                    <td class="text-white">Holographic Run</td>
+                                    <td class="text-white">30 mins</td>
+                                    <td class="text-glow text-cyan">300 kcal</td>
+                                    <td class="text-end">
+                                        <button class="btn btn-sm btn-outline-danger rounded-circle delete-btn" data-activity="Holographic Run" data-calories="300"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
+        </div>
+            
 
         </div>
     </main>
@@ -223,7 +225,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
     
-    <!-- Embedded Dashboard Logic securely in its own script block -->
+    <!-- Embedded Dashboard Logic -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Set dynamic current date
