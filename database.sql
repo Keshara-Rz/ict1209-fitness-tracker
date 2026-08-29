@@ -16,7 +16,7 @@ CREATE TABLE messages (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Theme-Specific Table
+-- Theme-Specific Table (Workouts)
 CREATE TABLE workouts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
