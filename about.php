@@ -1,0 +1,181 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - FitPulse</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Link to our future CSS file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-theme bg-deep-dark">
+
+    <!-- Ambient Glow Background -->
+    <div class="ambient-bg-glow"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top py-4" style="z-index: 1050;">
+        <div class="container">
+            
+            <!-- The floating glass pill -->
+            <div class="glass-nav-pill w-100 d-flex align-items-center justify-content-between px-3 px-lg-4 py-2 py-lg-1 rounded-4 rounded-lg-pill">
+                
+                <!-- 1. Logo (Left) -->
+                <a class="navbar-brand d-flex align-items-center m-0" href="index.html">
+                    <span class="text-white fw-light tracking-wide fs-6">Fit</span><span class="text-cyan fw-bold fs-6">Pulse</span>
+                </a>
+
+                <!-- 2. Mobile Hamburger Toggle -->
+                <button class="navbar-toggler border-0 shadow-none text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="bi bi-list fs-3"></i>
+                </button>
+
+                <!-- 3. Collapsible Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    
+                    <!-- Center Links -->
+                    <ul class="navbar-nav align-items-center gap-1 gap-lg-2 mx-lg-auto mt-3 mt-lg-0 pb-3 pb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link text-light-gray small " href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link text-light-gray small" href="dashboard.php">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link text-light-gray small active-link" href="about.php">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link custom-nav-link text-light-gray small" href="contact.php">Contact Us</a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Desktop Auth Buttons -->
+                    <div class="d-none d-lg-flex align-items-center gap-4 mt-3 mt-lg-0">
+                        <?php if(isset($_SESSION['user_id'])): ?>
+                            <span class="text-light-gray small">Welcome, <span class="text-white fw-bold"><?php echo htmlspecialchars($_SESSION['username']); ?></span></span>
+                            <a href="auth/logout.php" class="btn btn-outline-glow-white rounded-pill px-4 py-2 small fw-bold">Log Out</a>
+                        <?php else: ?>
+                            <a href="auth/login.php" class="text-light-gray text-decoration-none small hover-white">Login</a>
+                            <a href="auth/register.php" class="btn btn-glow-cyan rounded-pill px-4 py-2 small fw-bold d-flex align-items-center gap-2 text-dark">
+                                Sign Up <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main class="content-wrapper pt-5 mt-5">
+        <div class="container py-5">
+            
+            <!-- Story & Mission Section -->
+            <div class="row align-items-center mb-5 g-5">
+                <div class="col-lg-6">
+                    <h2 class="text-white futuristic-font text-glow mb-4 display-5">
+                        OUR STORY <br><span class="text-cyan">& MISSION</span>
+                    </h2>
+                    
+                    <div class="glass-panel p-4 p-md-5 rounded-4 position-relative overflow-hidden">
+    
+                        <div class="card-glow-accent top-left opacity-25"></div>
+                        <i class="bi bi-quote text-cyan fs-1 position-absolute top-0 start-0 ms-3 mt-2 opacity-50"></i>
+                        
+                        <p class="text-light-gray lead mb-4 position-relative z-1">
+                            In today's fast-paced world, maintaining a healthy lifestyle can feel like a secondary priority. Many individuals try to keep track of their workouts using manual paper logs, messy notes apps, or overly complex software that requires steep learning curves. We built FitPulse to bridge that gap.
+                        </p>
+                        
+                        <p class="text-light-gray lead mb-0 position-relative z-1">
+                            Our mission is to simplify fitness tracking by providing a clean, accessible, and zero-fuss digital space. FitPulse allows users to focus on what truly matters: their physical health. By combining streamlined layout designs with efficient database management, we offer a responsive companion that grows alongside your personal fitness benchmarks.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 d-none d-lg-flex justify-content-center align-items-center">
+                    <div class="position-relative w-100 h-100 d-flex justify-content-center align-items-center" style="min-height: 400px;">
+                        <div class="decorative-circle-1 border-cyan-glow rounded-circle position-absolute" style="width: 300px; height: 300px; opacity: 0.2; animation: pulse 4s infinite;"></div>
+                        <div class="decorative-circle-2 border border-secondary rounded-circle position-absolute" style="width: 400px; height: 400px; opacity: 0.1; transform: rotate(45deg);"></div>
+                        <i class="bi bi-fingerprint text-cyan" style="font-size: 8rem; filter: drop-shadow(0 0 20px #00d2ff);"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meet the Co-Founders Section -->
+            <div class="row mt-5 pt-5">
+                <div class="col-12 text-center mb-5">
+                    <h3 class="text-white futuristic-font text-glow text-uppercase tracking-wider">
+                        MEET THE <span class="text-cyan">CO-FOUNDERS</span>
+                    </h3>
+                    <div class="divider bg-cyan mx-auto my-3" style="width: 60px; height: 3px; border-radius: 2px;"></div>
+                </div>
+
+                <!-- Co-Founder Profiles Container -->
+                <div class="row justify-content-center g-4">
+                    
+                    <!-- Co-Founder 1 -->
+                    <div class="col-md-5 col-lg-4">
+                        <div class="glass-card p-4 rounded-4 text-center h-100 feature-hover">
+                            <div class="avatar-container mb-4 mx-auto position-relative" style="width: 120px; height: 120px;">
+                                <div class="rounded-circle w-100 h-100 bg-dark border border-cyan-glow border-2 d-flex justify-content-center align-items-center overflow-hidden">
+                                    <i class="bi bi-person-fill text-secondary" style="font-size: 4rem;"></i>
+                                </div>
+                                <div class="position-absolute bottom-0 end-0 rounded-circle" style="width: 15px; height: 15px; background-color: #00d2ff; box-shadow: 0 0 10px #00d2ff;"></div>
+                            </div>
+                            <h4 class="text-white mb-1">Bhanuka Madhushan</h4>
+                            <p class="text-cyan small text-uppercase tracking-wider mb-3">Lead Engineer</p>
+                            <p class="text-light-gray small mb-4">Focused on full-stack integration and database management.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="https://github.com/Bhanuka39" class="text-light-gray hover-cyan"><i class="bi bi-github fs-5"></i></a>
+                                <a href="#" class="text-light-gray hover-cyan"><i class="bi bi-linkedin fs-5"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Co-Founder 2 -->
+                    <div class="col-md-5 col-lg-4">
+                        <div class="glass-card p-4 rounded-4 text-center h-100 feature-hover">
+                            <div class="avatar-container mb-4 mx-auto position-relative" style="width: 120px; height: 120px;">
+                                <div class="rounded-circle w-100 h-100 bg-dark border border-warning border-2 d-flex justify-content-center align-items-center overflow-hidden">
+                                    <i class="bi bi-person-fill text-secondary" style="font-size: 4rem;"></i>
+                                </div>
+                                <div class="position-absolute bottom-0 end-0 bg-warning rounded-circle p-1" style="width: 15px; height: 15px; box-shadow: 0 0 10px #ffc107;"></div>
+                            </div>
+                            <h4 class="text-white mb-1">Keshara Ranasinghe</h4>
+                            <p class="text-warning small text-uppercase tracking-wider mb-3">UI/UX Designer</p>
+                            <p class="text-light-gray small mb-4">Specializing in frontend layout, styling, and client-side logic.</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="https://github.com/Keshara-Rz" class="text-light-gray hover-warning"><i class="bi bi-github fs-5"></i></a>
+                                <a href="#" class="text-light-gray hover-warning"><i class="bi bi-linkedin fs-5"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-footer py-4 mt-auto border-top border-secondary border-opacity-25">
+        <div class="container text-center">
+            <p class="text-light-gray mb-0 small">&copy; 2026 FitPulse. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Future Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

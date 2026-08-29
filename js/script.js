@@ -50,110 +50,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* Form Validation */
+    /* Form Validation (Updated for PHP Backend) */
     const forms = document.querySelectorAll('.needs-validation');
 
     Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
-            // Check if form is valid
+            // Check if form is missing any required fields
             if (!form.checkValidity()) {
-                event.preventDefault();
+                event.preventDefault(); // Stop submission only if INVALID
                 event.stopPropagation();
-            } else {
-                event.preventDefault(); 
-                
-                const submitBtn = form.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                
-                // Futuristic success state
-                submitBtn.innerHTML = 'SYSTEM UPDATED <i class="bi bi-check2-circle ms-2"></i>';
-                submitBtn.classList.replace('btn-glow-cyan', 'btn-success');
-                submitBtn.classList.replace('btn-glow-yellow', 'btn-success');
-                submitBtn.style.boxShadow = '0 0 20px rgba(25, 135, 84, 0.6)';
-
-                // Reset after 3 seconds
-                setTimeout(() => {
-                    form.reset();
-                    form.classList.remove('was-validated');
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.classList.replace('btn-success', originalText.includes('Log') ? 'btn-glow-yellow' : 'btn-glow-cyan');
-                    submitBtn.style.boxShadow = '';
-                }, 3000);
-            }
+            } 
+            // If the form IS valid, we do nothing and let the standard PHP POST request take over!
             
             form.classList.add('was-validated');
         }, false);
     });
 
-
-    /* Authentication Routing & Memory (Login/Signup Logic) */
-    
-    // Check Login State for the "Get Started" Button on the Home Page
+    /* Authentication Routing - Home Page "Get Started" Button */
     const getStartedBtn = document.getElementById('getStartedBtn');
     if (getStartedBtn) {
-        // If the browser remembers the user is logged in, change the button's destination
+        // Simple UI check (Actual security is now handled by PHP Session Lock in dashboard.php)
         if (localStorage.getItem('fitpulse_logged_in') === 'true') {
-            getStartedBtn.href = 'dashboard.html';
+            getStartedBtn.href = 'dashboard.php';
             getStartedBtn.innerHTML = 'Go To Dashboard <i class="bi bi-arrow-right ms-2"></i>';
         }
-    }
+    } 
 
-    // 2. Handle Login Form Submission
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop standard form submission
-            if (this.checkValidity()) {
-                // Save "logged in" state to browser memory
-                localStorage.setItem('fitpulse_logged_in', 'true'); 
-                // Redirect user to the dashboard
-                window.location.href = 'dashboard.html'; 
-            }
-        });
-    }
-
-    // 3. Handle Sign Up Form Submission
-    const signupForm = document.getElementById('signupForm');
-    if (signupForm) {
-        signupForm.addEventListener('submit', function(e) {
-            e.preventDefault(); 
-            if (this.checkValidity()) {
-                // Save "logged in" state to browser memory
-                localStorage.setItem('fitpulse_logged_in', 'true'); 
-                // Redirect user to the dashboard
-                window.location.href = 'dashboard.html'; 
-            }
-        });
-    }
-
-    /* Smooth Page Exit Transition */
-document.addEventListener("DOMContentLoaded", () => {
-    // Find every link on the page
-    const allLinks = document.querySelectorAll('a[href]');
-
-    allLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetUrl = this.getAttribute('href');
-
-            if (this.target === '_blank' || targetUrl.startsWith('#')) {
-                return;
-            }
-
-            // Stop the link from loading instantly
-            e.preventDefault();
-
-            // Add the fade-out CSS class to the body
-            document.body.classList.add('page-exit');
-
-            // Wait 400 milliseconds then load the new page
-            setTimeout(() => {
-                window.location.href = targetUrl;
-            }, 400);
-        });
-    });
 });
-
-    
-});
-
-
