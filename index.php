@@ -87,32 +87,32 @@ session_start();
                     
                     <!-- Image 1 (Active) -->
                     <div class="carousel-item active w-100 h-100">
-                        <img src="../images/images 1.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Virtual travel running environment">
+                        <img src="images/images 1.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Virtual travel running environment">
                     </div>
                     
                     <!-- Image 2 -->
                     <div class="carousel-item w-100 h-100">
-                        <img src="../images/images 2.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Holographic architectural construction space">
+                        <img src="images/images 2.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Holographic architectural construction space">
                     </div>
                     
                     <!-- Image 3 -->
                     <div class="carousel-item w-100 h-100">
-                        <img src="../images/images 3.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Drone video perspective of VR fitness arena">
+                        <img src="images/images 3.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Drone video perspective of VR fitness arena">
                     </div>
                     
                     <!-- Image 4 -->
                     <div class="carousel-item w-100 h-100">
-                        <img src="../images/images 4.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Upscaled digital workout gear">
+                        <img src="images/images 4.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Upscaled digital workout gear">
                     </div>
 
                     <!-- Image 5 -->
                     <div class="carousel-item w-100 h-100">
-                        <img src="../images/images 5.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Futuristic gym interior">
+                        <img src="images/images 5.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Futuristic gym interior">
                     </div>
 
                     <!-- Image 6 -->
                     <div class="carousel-item w-100 h-100">
-                        <img src="../images/images 6.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Cyberpunk neon lighting">
+                        <img src="images/images 6.png" class="d-block w-100 h-100" style="object-fit: cover;" alt="Cyberpunk neon lighting">
                     </div>
                     
                 </div>
