@@ -92,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <div class="mb-4">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
                                         <label class="form-label text-light-gray small text-uppercase tracking-wider m-0">Password</label>
+                                        <!-- Dummy Forgot Password Link (Only for visual) -->
                                         <a href="#" class="text-cyan text-decoration-none small">Forgot Password?</a>
                                     </div>
                                     <div class="input-group">
