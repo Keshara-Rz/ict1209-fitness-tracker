@@ -28,7 +28,7 @@ session_start();
             <div class="glass-nav-pill w-100 d-flex align-items-center justify-content-between px-3 px-lg-4 py-2 py-lg-1 rounded-4 rounded-lg-pill">
                 
                 <!-- 1. Logo (Left) -->
-                <a class="navbar-brand d-flex align-items-center m-0" href="index.html">
+                <a class="navbar-brand d-flex align-items-center m-0" href="index.php">
                     <span class="text-white fw-light tracking-wide fs-6">Fit</span><span class="text-cyan fw-bold fs-6">Pulse</span>
                 </a>
 
