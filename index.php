@@ -1,5 +1,22 @@
 <?php
 session_start();
+require_once 'includes/db.php';
+
+// Count total users
+$stmtUsers = $pdo->query("SELECT COUNT(*) FROM users");
+$realUsers = $stmtUsers->fetchColumn();
+
+// Count total workouts
+$stmtWorkouts = $pdo->query("SELECT COUNT(*) FROM workouts");
+$realWorkouts = $stmtWorkouts->fetchColumn();
+
+// Count unique exercises
+$stmtExercises = $pdo->query("SELECT COUNT(DISTINCT activity) FROM workouts");
+$realExercises = $stmtExercises->fetchColumn();
+
+$displayUsers = number_format(500 + $realUsers);
+$displayWorkouts = number_format(2000 + $realWorkouts);
+$displayExercises = number_format(100 + $realExercises);
 ?>
 
 <!DOCTYPE html>
@@ -147,7 +164,7 @@ session_start();
                             <div class="stat-item d-flex align-items-center gap-3">
                                 <div class="icon-box text-cyan fs-3"><i class="bi bi-people"></i></div>
                                 <div>
-                                    <h4 class="text-white mb-0 fw-bold">50,000+</h4>
+                                    <h4 class="text-white mb-0 fw-bold"><?php echo $displayUsers; ?><span class="text-white fs-4">+</h4>
                                     <p class="text-light-gray small mb-0">Users Logged</p>
                                 </div>
                             </div>
@@ -157,7 +174,7 @@ session_start();
                             <div class="stat-item d-flex align-items-center gap-3">
                                 <div class="icon-box text-cyan fs-3"><i class="bi bi-activity"></i></div>
                                 <div>
-                                    <h4 class="text-white mb-0 fw-bold">1M+</h4>
+                                    <h4 class="text-white mb-0 fw-bold"><?php echo $displayWorkouts; ?><span class="text-white fs-4">+</span></h4>
                                     <p class="text-light-gray small mb-0">Workouts Tracked</p>
                                 </div>
                             </div>
@@ -167,7 +184,7 @@ session_start();
                             <div class="stat-item d-flex align-items-center gap-3">
                                 <div class="icon-box text-cyan fs-3"><i class="bi bi-grid"></i></div>
                                 <div>
-                                    <h4 class="text-white mb-0 fw-bold">100+</h4>
+                                    <h4 class="text-white mb-0 fw-bold"><?php echo $displayExercises; ?><span class="text-white fs-4">+</h4>
                                     <p class="text-light-gray small mb-0">Exercise Types</p>
                                 </div>
                             </div>
