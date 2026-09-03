@@ -134,7 +134,7 @@ session_start();
                             Managing your fitness journey shouldn't be complicated. FitPulse removes the paperwork and guesswork from your daily routine by providing an interactive platform to log your exercises cleanly.
                         </p>
                         <!-- CTA -->
-                        <a href="signup.html" id="getStartedBtn" class="btn btn-outline-glow-white border-2 rounded-pill px-5 py-3 fw-bold">
+                        <a href="auth/register.php" id="getStartedBtn" class="btn btn-outline-glow-white border-2 rounded-pill px-5 py-3 fw-bold">
                             Get Started <i class="bi bi-arrow-up-right ms-2"></i>
                         </a>
                     </div>
