@@ -218,7 +218,7 @@ $displayExercises = number_format(100 + $realExercises);
                             Step away from manual logs and cluttered apps. FitPulse is engineered to provide a frictionless, immersive environment where your fitness data becomes your greatest asset.
                         </p>
                         
-                        <a href="about.html" class="btn btn-outline-cyan rounded-pill px-4 py-2 text-uppercase tracking-wider small fw-bold">
+                        <a href="about.php" class="btn btn-outline-cyan rounded-pill px-4 py-2 text-uppercase tracking-wider small fw-bold">
                             Discover Our Story <i class="bi bi-arrow-right ms-2"></i>
                         </a>
                     </div>
