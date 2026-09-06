@@ -7,3 +7,26 @@ The complex backend architecture (PHP session routing and MySQL integration) was
 Consequently, the Git commit history for Phase 3 reflects pushes from a single unified repository account. This was a deliberate version control strategy to maintain a clean, conflict-free main branch while multiple members actively engineered the code side-by-side.
 
 ---
+
+fitpulse/
+│
+├── auth/                   # Authentication routing & UI
+│   ├── login.php
+│   ├── register.php
+│   └── logout.php
+│
+├── css/                    # Custom stylesheets (Glassmorphism UI)
+│   └── style.css
+│
+├── includes/               # Server configurations
+│   └── db.php              # PDO Database connection script
+│
+├── js/                     # Client-side scripts
+│   └── script.js
+│
+├── about.php               # Public About page
+├── contact.php             # Public Contact form (DB connected)
+├── dashboard.php           # Secure user portal (Session protected)
+├── index.php               # Landing page with dynamic DB statistics
+├── database.sql            # Exported MySQL schema for deployment
+└── README.md               # GitHub repository documentation
