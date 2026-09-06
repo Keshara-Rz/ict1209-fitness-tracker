@@ -55,21 +55,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
-            // Check if form is missing any required fields
+            
             if (!form.checkValidity()) {
-                event.preventDefault(); // Stop submission only if INVALID
+                event.preventDefault(); 
                 event.stopPropagation();
             } 
-            // If the form IS valid, we do nothing and let the standard PHP POST request take over!
+            
             
             form.classList.add('was-validated');
         }, false);
     });
 
-    /* Authentication Routing - Home Page "Get Started" Button */
+    
     const getStartedBtn = document.getElementById('getStartedBtn');
     if (getStartedBtn) {
-        // Simple UI check (Actual security is now handled by PHP Session Lock in dashboard.php)
+        // Simple UI check 
         if (localStorage.getItem('fitpulse_logged_in') === 'true') {
             getStartedBtn.href = 'dashboard.php';
             getStartedBtn.innerHTML = 'Go To Dashboard <i class="bi bi-arrow-right ms-2"></i>';
