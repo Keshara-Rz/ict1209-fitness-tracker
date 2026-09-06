@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['send_message'])) {
 
     $fullName = $firstName . ' ' . $surname;
 
-    // Validation (Basic)
+    // Validation 
     if (empty($firstName) || empty($surname) || empty($email) || empty($message)) {
         $error = 'Please fill in all fields before submitting.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
